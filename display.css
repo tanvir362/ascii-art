@@ -1,0 +1,10 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+    font-family: 'Courier';
+    font-size: 15px;
+    letter-spacing: 0.8px;
+    line-height: 0.7;
+}
