@@ -94,3 +94,10 @@ class AsciiArt:
             file.write(template)
 
     
+
+if __name__ == '__main__':
+
+    # art = AsciiArt('images/tanvir_face.png', 550, 550)
+    art = AsciiArt('images/tanvir.jpg', 100, 100)
+    # art.display() # black and white
+    art.color_display() # colored
