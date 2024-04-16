@@ -56,3 +56,30 @@ class AsciiArt:
 
         with open('display.html', 'w') as file:
             file.write(template)
+
+    def color_display(self):
+        width = self.gray.shape[1]
+        height = self.gray.shape[0]
+
+        img_rows_text = []
+
+        for i, row in enumerate(self.gray):
+            line = []
+            for j, v in enumerate(row):
+                ch = self.denser[round(translate(v, 0, 255, 0, len(self.denser)-1))]
+
+                if ch == ' ':
+                    line.append('&nbsp')
+
+                else:
+                    color = '#'+''.join(f"{cp:02X}" for cp in self.resized[i][j][::-1])
+                    line.append(f'<span style="color:{color}">{ch}</span>')
+
+            img_rows_text.append("".join(line))
+
+        template = f"""<html><head><link rel="stylesheet" href="display.css"/></head><body>{"<br>".join(img_rows_text)}</body></html>"""
+
+        with open('display.html', 'w') as file:
+            file.write(template)
+
+    
